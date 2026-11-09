@@ -105,7 +105,7 @@ img {
 
 .pw-nav ul {
   display: flex;
-  gap: 5rem;
+  gap: clamp(1.5rem, 5vw, 5rem);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -382,6 +382,133 @@ h1 {
   border-top: 1px solid var(--line);
 }
 
+.cm-resume {
+  padding-bottom: 6rem;
+}
+
+.cm-resume-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 3rem;
+  padding-block: clamp(3.5rem, 8vw, 6rem) 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.cm-resume-header h1 {
+  max-width: none;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+.cm-resume-role {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.cm-resume-contact {
+  display: grid;
+  justify-items: end;
+  gap: 0.25rem;
+  font-size: 0.82rem;
+}
+
+.cm-resume-contact p {
+  margin: 0;
+}
+
+.cm-resume-section {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-block: 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.cm-resume-section h2 {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.cm-resume-content > :first-child {
+  margin-top: 0;
+}
+
+.cm-resume-content > :last-child {
+  margin-bottom: 0;
+}
+
+.cm-resume-entry + .cm-resume-entry {
+  margin-top: 2.25rem;
+}
+
+.cm-resume-entry-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cm-resume-entry h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 400;
+  text-wrap: wrap;
+}
+
+.cm-resume-location {
+  margin-left: 0.5rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.cm-resume-entry-header p,
+.cm-resume-detail,
+.cm-resume-profile {
+  color: var(--muted);
+}
+
+.cm-resume-entry-header p {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+.cm-resume-detail,
+.cm-resume-profile {
+  margin: 0.25rem 0 0.8rem;
+  font-size: 1rem;
+}
+
+.cm-resume-entry ul {
+  margin-block: 0.75rem 0;
+  padding-left: 2rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.cm-resume-skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 3rem;
+}
+
+.cm-resume-skills h3 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.cm-resume-skills p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .pw-footer {
   display: flex;
   justify-content: space-between;
@@ -441,6 +568,26 @@ h1 {
   .cm-post-footer {
     flex-direction: column;
   }
+
+  .cm-resume-header,
+  .cm-resume-section {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .cm-resume-contact {
+    justify-items: start;
+  }
+
+  .cm-resume-entry-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .cm-resume-skills {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -470,5 +617,13 @@ h1 {
   body {
     background: #fff;
     color: #000;
+  }
+
+  .cm-resume {
+    padding-bottom: 0;
+  }
+
+  .cm-resume-header {
+    padding-top: 0;
   }
 }
